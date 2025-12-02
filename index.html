@@ -4,15 +4,18 @@
         <meta charset="UTF-8">
         <title>Prijavni obrazec</title>
         <link rel="stylesheet" href="./assets/css/main.css">
-        <script src="./assets/js/main"></script>
+        <script type="module" src="./assets/js/init.js"></script>
+        <script type="module" src="./assets/js/data.js"></script>
+        <script type="module" src="./assets/js/form.js"></script>
+        <script type="module" src="./assets/js/load-page.js"></script>
     </head>
     <body>
-        <table border="1" class="main-table">
+        <table class="main-table">
             <tr>
                 <td colspan="2">
                     <h1>Prijava v izbirno skupino za predmet SMV</h1>
                     <p>
-                        Pri SMV bomo izvedli vaje     naslednjih nekaj srečanj v skupinah, kjer bomo spoznavali sodobne tehnologije z različnih področij. V tabeli so prikazane tematike in kratko opisane vsebine, ki jih bomo spoznali. Vsak dijak se lahko prijavi v le eno skupino, poda pa lahko tudi drugo opcijo, če bi želel naknadno spremeniti skupino.
+                        Pri SMV bomo izvedli vaje naslednjih nekaj srečanj v skupinah, kjer bomo spoznavali sodobne tehnologije z različnih področij. V tabeli so prikazane tematike in kratko opisane vsebine, ki jih bomo spoznali. Vsak dijak se lahko prijavi v le eno skupino, poda pa lahko tudi drugo opcijo, če bi želel naknadno spremeniti skupino.
                     </p>
                     <p>
                         Prijave v skupine bomo omogočili ob dogovorjenem času, da boste imeli vsi enake možnosti za prijavo. V primeru prevelikega števila prijav v skupino, bo po določenem kvoti (največje število dovoljenih prijav) izbira in prijava v skupino onemogočena. V primeru neenakomerne porazdelitve po skupinah si pridržujemo pravico, da iz skupine s preveč prijavljenimi prestavimo v druge skupine zadnje prijavljene v prevelikih skupinah.
@@ -20,93 +23,12 @@
                 </td>
             </tr>
             <tr>
-                <td class="table-container">
-                    <table border="1">
-                        <tr>
-                            <td>Skupina</td>
-                            <td>Prijavljeni</td>
-                            <td>Nosilec</td>
-                            <td>Tematika</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td class="center">B. Resinovič</td>
-                            <td class="center">Android</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"></td>
-                            <td colspan="2">izdelava androidne alikacije</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td class="center">B. Lubej</td>
-                            <td class="center">Python</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"></td>
-                            <td colspan="2">osnovni ukazi in metode za delo, izdelava preproste igre</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td class="center">G. Breznik</td>
-                            <td class="center">Linux</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"></td>
-                            <td colspan="2">nalagalnik, particije, uporabniki, pravice, skripte, administracija</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td class="center">B. Slemenšek</td>
-                            <td class="center">JavaSkript</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"></td>
-                            <td colspan="2">JS za postavitev aktivnih strani, izdelava igre</td>
-                        </tr>
-                    </table>
-                </td>
-                <td class="form-container">
+                <td id="table-container" class="table-container"></td>
+                <td id="form-container" class="form-container">
                     <span style="text-align: center;">Največje število prijavljenih v skupini: 15</span>
                     <span style="text-align: center;">Prijava je mogoča le za dijake oddelkov: R4A, R4B</span>
                     <span style="text-align: center;">Za prijavo v skupino moraš vpisati naslenje podatke:</span>
-                    <form action="">
-                        <table>
-                            <tr>
-                                <td>EMŠO: </td>
-                                <td><input type="text" name="emšo" required></td>
-                            </tr>
-                            <tr>
-                                <td>Prva izbira</td>
-                                <td>
-                                    <select name="prva" id="" required>
-                                        <option disabled selected value="0">--- Izberi skupino ---</option>
-                                        <option value="1">Android</option>
-                                        <option value="2">Python</option>
-                                        <option value="3">Linux</option>
-                                        <option value="4">JavaSkript</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Druga izbira: </td>
-                                <td>
-                                    <select name="druga" id="" required>
-                                        <option disabled selected value="0">--- Izberi skupino ---</option>
-                                        <option value="1">Android</option>
-                                        <option value="2">Python</option>
-                                        <option value="3">Linux</option>
-                                        <option value="4">JavaSkript</option>
-                                    </select>
-                                </td>
-                            </tr>
-                        </table>
-                        <button type="submit">Pošlji</button>
-                    </form>
+                    <form id="assign-form" action=""></form>
                 </td>
             </tr>
         </table>

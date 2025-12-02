@@ -60,6 +60,15 @@ body {
             box-shadow: inset 1px 1px lightgray;
             width: 60%;
         }
+
+        button {
+            padding: 1px 3px;
+        }
+
+        .form-error {
+            text-transform: capitalize;
+            color: red;
+        }
     }
 
 }

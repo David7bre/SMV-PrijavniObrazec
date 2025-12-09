@@ -1,5 +1,4 @@
 import { GetData } from './data.js';
-import { SelectionFilter } from './form.js';
 
 export function LoadTable() {
     var container = document.getElementById('table-container');
@@ -48,6 +47,16 @@ export function LoadForm() {
                 <td><input type="number" name="emso" required></td>
             </tr>
             <tr>
+                <td>Oddelek: </td>
+                <td>
+                    <select name="class" id="class" required>
+                        <option disabled selected hidden value="">--- Izberi oddelek ---</option>
+                        <option value="r4a">R4A</option>
+                        <option value="r4b">R4B</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td>Prva izbira</td>
                 <td>
                     <select name="firstSelection" id="firstSelection" required>
@@ -86,4 +95,23 @@ export function LoadForm() {
     `;
 
     SelectionFilter();
+}
+
+function SelectionFilter() {
+    var firstSelection = document.getElementById('firstSelection');
+    var secondSelection = document.getElementById('secondSelection');
+
+    firstSelection.addEventListener('change', () => {
+        var selectedValue = firstSelection.value;
+        Array.from(secondSelection.options).forEach(option => {
+            option.hidden = option.value === selectedValue;
+        });
+    });
+
+    secondSelection.addEventListener('change', () => {
+        var selectedValue = secondSelection.value;
+        Array.from(firstSelection.options).forEach(option => {
+            option.hidden = option.value === selectedValue;
+        });
+    });
 }

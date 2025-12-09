@@ -1,5 +1,5 @@
 import { LoadTable, LoadForm } from './load-page.js';
-import { CheckFormValid } from './form.js';
+import { CheckFormValid } from './submit-form.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     LoadTable();

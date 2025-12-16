@@ -70,7 +70,8 @@ export function LoadForm() {
             </tr>
             <tr>
                 <td>Druga izbira</td>
-                <td>
+                <td style="margin-left: 10px !important">
+                    <span id="selectionPlaceholder">Najprej prva izbira!</span>
                     <select name="secondSelection" id="secondSelection" required>
                         <option disabled selected hidden value="">--- Izberi skupino ---</option>
                         ${Object.keys(subjects)
@@ -100,9 +101,23 @@ export function LoadForm() {
 function SelectionFilter() {
     var firstSelection = document.getElementById('firstSelection');
     var secondSelection = document.getElementById('secondSelection');
+    var placeholder = document.getElementById('selectionPlaceholder');
+
+    secondSelection.style.display = 'none';
+    placeholder.style.display = 'inline';
 
     firstSelection.addEventListener('change', () => {
         var selectedValue = firstSelection.value;
+
+        if (selectedValue !== "") {
+            placeholder.style.display = 'none';
+            secondSelection.style.display = 'block';
+        } else {
+            secondSelection.style.display = 'none';
+            secondSelection.value = "";
+            placeholder.style.display = 'inline';
+        }
+
         Array.from(secondSelection.options).forEach(option => {
             option.hidden = option.value === selectedValue;
         });

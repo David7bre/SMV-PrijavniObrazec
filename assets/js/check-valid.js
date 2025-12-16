@@ -1,12 +1,39 @@
 import { GetData } from "./data.js";
 
 export function checkEmso(emso) {
-  var regex = /^\d{13}$/;
   var errSpan = document.getElementById('form-error');
-  if (!regex.test(emso)) {
+
+  var EMSO_ok = false;
+  if (emso.length == 13) {
+    var sum = 0;
+    var num;
+    var pond = 7;
+  
+    for (var poz = 0; poz < 12; poz++) {
+      num = Number(emso.charAt(poz));
+      if (pond == 1) pond = 7;
+      num *= pond--;
+      sum += num;
+    }
+  
+    sum %= 11;
+    if (sum < 2) {
+      sum = 0;
+    } else {
+      sum = 11 - sum;
+    }
+  
+    num = Number(emso.charAt(12));
+    if (sum == num) {
+      EMSO_ok = true;
+    }
+  }
+
+  if (!EMSO_ok) {
       errSpan.innerText = "Napaka: Vnesli ste neveljavno EMŠO.";
       return false;
   }
+
   var data = GetData();
   if (!data.classes.r4a.includes(emso) && !data.classes.r4b.includes(emso)) {
       errSpan.innerText = "Napaka: Vnesli ste EMŠO, ki ni v nobeni od razredov.";
